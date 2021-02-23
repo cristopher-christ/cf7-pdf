@@ -168,6 +168,13 @@ if ( !class_exists( 'Cf7_Pdf_Generation_Front_Action' ) ){
 					$cf7_opt_min_width_logo = $setting_data['cf7_opt_min_width_logo'] ? $setting_data['cf7_opt_min_width_logo'] : '85px';
 					$cf7_opt_header_text = $setting_data['cf7_opt_header_text'] ? $setting_data['cf7_opt_header_text'] : '';
 					$cf7_opt_footer_text = $setting_data['cf7_opt_footer_text'] ? $setting_data['cf7_opt_footer_text'] : '';
+					
+					if( isset($setting_data['cf7_pdf_filename_prefix']) ) {
+						$setting_data['cf7_pdf_filename_prefix'] = trim($setting_data['cf7_pdf_filename_prefix']);
+						$cf7_pdf_filename_prefix = $setting_data['cf7_pdf_filename_prefix'] ? $setting_data['cf7_pdf_filename_prefix'] : 'CF7';
+					} else {
+						$cf7_pdf_filename_prefix = 'CF7';
+					} 
 
 					foreach ($posted_data as $key => $value) {
 						if ( strstr( $msg_body, $key ) ) {
@@ -208,7 +215,13 @@ if ( !class_exists( 'Cf7_Pdf_Generation_Front_Action' ) ){
 					$mpdf->SetHTMLFooter( $footerContent );
 
 					$mpdf->WriteHTML($html);
-					$pdf_file_name = 'cf7-'.$contact_id.'-'.time().'.pdf';
+
+					if( $cf7_pdf_filename_prefix!='' ) {
+						$pdf_file_name = $cf7_pdf_filename_prefix.'-'.time().'.pdf';
+					} else {
+						$pdf_file_name = 'cf7-'.$contact_id.'-'.time().'.pdf';
+					} 
+
 					$path_dir_cf7 = '';
 					foreach ( (array) $uploaded_files as $name => $path ) {
 

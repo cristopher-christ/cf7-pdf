@@ -5,8 +5,8 @@ Tags: contact corm 7, contact form, contact, PDF, email, form, PDF mail
 Requires at least: 3.0.1
 Requires PHP: 5.6
 Tested up to: 5.5.3
-Stable tag: 1.9.6
-Version: 1.9.6
+Stable tag: 1.9.7
+Version: 1.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,6 +76,9 @@ Please make sure plugin-name/attachments folder have read/write permission.
 
 
 == Changelog ==
+
+= 1.9.7 =
+* Fix - Solved issue of Attachement conflict of Default CF7 and our PDF with emails.
 
 = 1.9.6 =
 * Add - Add Pages Break Feature for move content to the next Pages.

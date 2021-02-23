@@ -325,6 +325,17 @@ Your Message : [your-message]';
 						        		<textarea id="code" name="wp_cf7_pdf_settings[cf7_pdf_msg_body]"><?php echo $cf7_pdf_msg_body; ?></textarea>
 						        	</td>
 						        </tr>
+
+								<tr valign="top">
+									<th scope="row"><?php echo esc_html(__( 'PDF File Name Prefix', 'cf7-pdf-generation')); ?></th>
+									<td>
+										<?php
+										$cf7_pdf_filename_prefix = isset( $meta_values['cf7_pdf_filename_prefix'] ) ? $meta_values['cf7_pdf_filename_prefix'] : '';
+										?>
+										<input type="text" name="wp_cf7_pdf_settings[cf7_pdf_filename_prefix]" id="cf7_pdf_filename_prefix" value="<?php echo $cf7_pdf_filename_prefix; ?>" style="width: 50%;" placeholder="CF7">
+									</td>
+						        </tr>
+
 					    	</table>
 					    	</td>
 					    </tr>
